@@ -15,6 +15,8 @@ time_wait = 4
 time.sleep(time_wait)
 nickname = input("Please press your nickname so we can save your score ranking!")
 ready = input('When you are ready, press "start" to start the quiz!')
+
+#Difficult choose
 if ready.lower() == "start":
     print("Past: For people who just played the game")
     print("Present: For people")
