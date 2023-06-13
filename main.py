@@ -1,4 +1,5 @@
 import time
+import json
 
 #Rules
 print("Welcome to a quiz of Arcaea! Arcaea is a rhythm game, In this quiz you need to answer a few questions to get score, Let me show you the rules:")
@@ -16,12 +17,32 @@ time.sleep(time_wait)
 nickname = input("Please press your nickname so we can save your score ranking!")
 ready = input('When you are ready, press "start" to start the quiz!')
 
+#Questions
+pst_ques = [
+    {
+        "question": "Which partner has a skill? ",
+        "choices": ["Hikari", "Tairitsu"],
+        "answer": "Hikari",
+        "Hint": "the partner have a EASY skill"
+    },
+    {
+        "question": "How many songs in the free pack(Arcaea pack)?",
+        "choices": ["", "", "", ""],
+        "answer": "",
+        "Hint": ""
+    }
+]
+
 #Difficult choose
 if ready.lower() == "start":
-    print("Past: For people who just played the game")
-    print("Present: For people")
-    print("Future:")
-    print("Please choose a different level:")
+    print("Past: For people who just played the game.")
+    print("Present: For people who played a longer time.")
+    print("Future: For people who played very long time.")
+    
+    level_choosen = input("Please choose a different level(Pst, Pre, Ftr):").lower()
+    
+
+
 
 # Set the timer duration in seconds
 #timer_duration = 10
