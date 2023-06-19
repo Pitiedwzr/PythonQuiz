@@ -38,8 +38,14 @@ while not ready.lower() == "start":
     ready = input("Still not ready? That's ok, when you ready just type 'start'")
 
 #Difficult choose
-print("Past: For people who just played the game.")
-print("Present: For people who played a longer time.")
-print("Future: For people who played very long time.")
+print("Past (Easy):")
+print("Designed for beginners or those who want to start with an easier challenge.")
+print("Present (Normal):")
+print("Offers a moderate challenge suitable for those with some knowledge of game.")
+print("Future (Hard):")
+print("For a more advanced and challenging experience.Get ready to expand your thinking.This difficulty requires the participant to be familiar with the skills of the game (involving PTT calculations etc.)")
+#print("Beyond (Challenging):")
+#print("The ultimate challenge.This level of difficulty requires the participant to know almost everything about the game (which will involve how the game functions at a programmatic level)")
 level_choosen = input("Please choose a different level(Pst, Pre, Ftr):").lower()
+#level_choosen = input("Please choose a different level(Pst, Pre, Ftr, Byd):").lower()
 print(f"You choose the {level_choosen} level.")
