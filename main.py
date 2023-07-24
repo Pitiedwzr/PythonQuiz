@@ -89,7 +89,7 @@ print("Present (Normal):")
 print("Offers a moderate challenge suitable for those with some knowledge of game.")
 print("Future (Hard):")
 print("For a more advanced and challenging experience.Get ready to expand your thinking.This difficulty requires the participant to be familiar with the skills of the game (involving PTT calculations etc.)")
-# Line 77, 78 and 80 is for get a high score at hard level to challenging, but I haven't done the score-save part so it just a placeholder
+# Line 93, 94 and 96 is for get a high score at hard level to challenging, but I haven't done the score-save part so it just a placeholder
 #print("Beyond (Challenging):")
 #print("The ultimate challenge.This level of difficulty requires the participant to know almost everything about the game (which will involve how the game functions at a programmatic level)")
 level_chosen = input("Please choose a different level(Pst, Pre, Ftr):").lower()
@@ -129,19 +129,19 @@ for question in questions:
             print(f"{number + 1}. {choice}")
     
         # Get user input for the answer and stop the timer
-        user_answer = input("Enter your answer (Write the whole answer after the number): ")
+        user_answer = int(input("Enter your answer (Write the number of answer): "))
         answered_time = time.time()
         time_used = answered_time - start_time
 
         # Check if the answer is correct
-        if user_answer == question["answer"]:
+        if question["choices"][user_answer - 1] == question["answer"]:
             bonus = round(1 + (1 - time_used / time_limit), 1)
             print(f"Correct! You have get a bonus with {bonus}, and you get {10 * bonus} scores!")
             score += 10 * bonus
         elif time_used > time_limit:
             print("You spend too long time on answer.")
         else:
-            print("Incorrect.")
+            print("Incorrect answer. The correct answer is:", question["answer"])
     else:
         time_limit = question["time"]
 
@@ -157,17 +157,26 @@ for question in questions:
             print(f"{number + 1}. {choice}")
     
         # Get user input for the answer
-        user_answer = input("Enter your answer (Write the whole answer after the number): ")
+        user_answer = int(input("Enter your answer (Write the number of answer): "))
         answered_time = time.time()
         time_used = answered_time - start_time
         
         # Check if the answer is correct
-        if user_answer == question["answer"]:
+        if question["choices"][user_answer - 1] == question["answer"]:
             print("Correct! You get 10 scores.")
             score += 10
         elif time_used > time_limit:
             print("You spend too long time on answer.")
         else:
-            print("Incorrect.")
+            print("Incorrect answer. The correct answer is:", question["answer"])
 
 print(f"You got {score} scores!")
+results = {
+    "nickname": nickname,
+    "score": score,
+    "level_chosen": level_chosen
+}
+
+filename = f"./contestants/{nickname}.json"
+with open(filename, "w") as json_file:
+    json.dump(results, json_file)
