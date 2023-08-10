@@ -4,15 +4,69 @@
     "choices": [ "Testify", "Tempestissimo", "Arcana Eden", "PRAGMATISM -RESURRECTION-" ],
     "answer": "Testify",
     "bonus": "False",
-    "time": 10,
-    "hint": ""
+    "time": 10
+  },
+  {
+    "question": "Which is the only one of the main song packs that doesn't have a difficulty of level 11 and above? ",
+    "choices": [ "Adverse Prelude", "Final Verdict", "Eternal Core", "Black Fate" ],
+    "answer": "Adverse Prelude",
+    "bonus": "False",
+    "time": 10
+  },
+  {
+    "question": "How many hours after Tempestissimo [BYD] joined the game was the MAX score reached? ",
+    "choices": [ "56", "29", "71", "12" ],
+    "answer": "56",
+    "bonus": "False",
+    "time": 10
+  },
+  {
+    "question": "Which is the track with the lowest BPM of all the songs? ",
+    "choices": [ "dropdead", "World Vanquisher", "Arcahv", "PRAGMATISM" ],
+    "answer": "dropdead",
+    "bonus": "False",
+    "time": 10
+  },
+  {
+    "question": "Which song have the highest chart constant? ",
+    "choices": [ "World Vanquisher", "CHAOS", "Quon", "Oshama Scramble!" ],
+    "answer": "World Vanquisher",
+    "bonus": "False",
+    "time": 10
+  },
+  {
+    "question": "What was the first April Fool's Day track to be offered as a link-up in the rhythm game community? ",
+    "choices": [ "Red and Blue and Green", "Singularity VVVIP", "overdead.", "Mistempered Malignance" ],
+    "answer": "Red and Blue and Green",
+    "bonus": "False",
+    "time": 10
+  },
+  {
+    "question": "Which track is the first level 10 score to appear in the free pack Arcaea? ",
+    "choices": [ "Bookmaker (2D Version)", "Red and Blue and Green", "One Last Drive", "Blaster" ],
+    "answer": "Bookmaker (2D Version)",
+    "bonus": "False",
+    "time": 10
+  },
+  {
+    "question": "Which is the only track in the whole game that has the same difficulty as PRS and PST? ",
+    "choices": [ "Maze No.9", "Fairytale", "Paradise", "dropdead" ],
+    "answer": "Maze No.9",
+    "bonus": "False",
+    "time": 10
   },
   {
     "question": "What PTT you need to unlock the Beyond level in game? ",
     "choices": [ "9", "10", "12.5" ],
     "answer": "9",
     "bonus": "True",
-    "time": 7,
-    "hint": ""
+    "time": 7
+  },
+  {
+    "question": "Which is the first Collaboration pack track to have BYD difficulty? ",
+    "choices": [ "Quon (DJ Noriken)", "CHAOS", "Oshama Scramble!", "April showers" ],
+    "answer": "Quon (DJ Noriken)",
+    "bonus": "True",
+    "time": 7
   }
 ]

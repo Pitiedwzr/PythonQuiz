@@ -4,23 +4,34 @@
     "choices": [ "OMAKENO Stroke", "BLRINK", "World Ender", "Silent Rush" ],
     "answer": "OMAKENO Stroke",
     "bonus": "False",
-    "time": 15,
-    "hint": ""
+    "time": 15
   },
   {
     "question": "What's the first anomaly song? ",
     "choices": [ "Axium Crisis", "Grievous Lady", "Sheriruth", "Fracture Ray" ],
     "answer": "Grievous Lady",
     "bonus": "False",
-    "time": 15,
-    "hint": ""
+    "time": 15
   },
   {
     "question": "Which artist finish the song Axium Crisis? ",
     "choices": [ "ak+q", "Aoi", "ARForest", "chitose" ],
     "answer": "ak+q",
     "bonus": "True",
-    "time": 10,
-    "hint": ""
+    "time": 10
+  },
+  {
+    "question": "Which partner is the only one with a preview PV? ",
+    "choices": [ "Amane", "Hikari", "Taritsu", "Kou" ],
+    "answer": "Amane",
+    "bonus": "True",
+    "time": 10
+  },
+  {
+    "question": "What's the last anomaly song? ",
+    "choices": [ "Testify", "Grievous Lady", "Tempestissimo", "Fracture Ray" ],
+    "answer": "Testify",
+    "bonus": "False",
+    "time": 15
   }
 ]

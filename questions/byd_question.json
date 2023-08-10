@@ -4,31 +4,69 @@
     "choices": [ "Hash check", "MD5 check", "Direct compare", "File size check" ],
     "answer": "Hash check",
     "bonus": "False",
-    "time": 10,
-    "hint": ""
+    "time": 10
   },
   {
     "question": "What file Arcaea use for chart? ",
     "choices": [ "json", "aff", "aroid", "txt" ],
     "answer": "aff",
-    "bonus": "True",
-    "time": 7,
-    "hint": ""
+    "bonus": "False",
+    "time": 10
   },
   {
     "question": "Which normal chart use screencontrol? ",
     "choices": [ "Red and Blue and Green", "Overdead.", "Testify", "Tempestissimo" ],
     "answer": "Testify",
-    "bonus": "True",
-    "time": 7,
-    "hint": ""
+    "bonus": "False",
+    "time": 10
   },
   {
-    "question": "",
-    "choices": [ "" ],
-    "answer": "",
+    "question": "Which binary file needs to be modified to unhash Arcaea's songlist for Android?",
+    "choices": [ "libcocos2dcpp.so", "Arc-moblie", "main.py" ],
+    "answer": "libcocos2dcpp.so",
     "bonus": "True",
-    "time": 7,
-    "hint": ""
+    "time": 7
+  },
+  {
+    "question": "What does the actual flow rate multiplier of timing within the chart depend on? ",
+    "choices": [ "bpm_base / bpm in timing", "bpm / bpm in timing", "bpm_base / bpm", "bpm / bpm_base" ],
+    "answer": "bpm_base / bpm in timing",
+    "bonus": "False",
+    "time": 10
+  },
+  {
+    "question": "What is the limiting size of base_256.jpg?",
+    "choices": [ "256x256", "512x512", "128x128", "No limit" ],
+    "answer": "No limit",
+    "bonus": "True",
+    "time": 7
+  },
+  {
+    "question": "Which value of the beats parameter is not allowed in the timing statement? ",
+    "choices": [ "0.00", "4.00", "6.00", "2.25" ],
+    "answer": "0.00",
+    "bonus": "False",
+    "time": 10
+  },
+  {
+    "question": "How many times at most can a timing statement with t = 0 occur in the same chart? ",
+    "choices": [ "0", "1", "2", "4" ],
+    "answer": "1",
+    "bonus": "False",
+    "time": 10
+  },
+  {
+    "question": "How many decimal places must the bpm parameter be retained in the timing statement? ",
+    "choices": [ "2", "1", "4", "3" ],
+    "answer": "2",
+    "bonus": "False",
+    "time": 10
+  },
+  {
+    "question": "The value of the color parameter in the arc statement cannot be which of the following? ",
+    "choices": [ "-1", "0", "2", "3" ],
+    "answer": "2",
+    "bonus": "False",
+    "time": 10
   }
 ]

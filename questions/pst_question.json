@@ -3,32 +3,35 @@
     "question": "Which partner has a skill? ",
     "choices": [ "Hikari", "Tairitsu" ],
     "answer": "Hikari",
-    "bonus": "False",
-    "time": 20,
-    "hint": ""
+    "bonus": "True",
+    "time": 15
   },
   {
     "question": "Who finish the song Fairytale? ",
     "choices": [ "chitose", "A-zu-ra", "U-ske", "Aire" ],
     "answer": "chitose",
     "bonus": "False",
-    "time": 20,
-    "hint": ""
+    "time": 20
   },
   {
     "question": "Who finish the song Brand new world? ",
     "choices": [ "MIssionary", "chitose", "U-ske", "ak+q" ],
     "answer": "U-ske",
     "bonus": "False",
-    "time": 20,
-    "hint": ""
+    "time": 20
   },
   {
     "question": "Which word common means \"Perfect\"? ",
     "choices": [ "PURE", "FAR", "LOST" ],
     "answer": "PURE",
     "bonus": "True",
-    "time": 15,
-    "hint": ""
+    "time": 15
+  },
+  {
+    "question": "Who finish the song memoryfactory.lzh?",
+    "choices": [ "Frums", "Silentroom", "Masanori Akita", "Blacklolita" ],
+    "answer": "Frums",
+    "bonus": "False",
+    "time": 20
   }
 ]
