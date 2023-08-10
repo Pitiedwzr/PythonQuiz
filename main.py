@@ -15,61 +15,15 @@ print("3.You can choose the difficulty level that is suitable for you, different
 #time_wait = 2
 time.sleep(time_wait)
 
-# Questions
-pst_ques = [
-    {
-        "question": "Which partner has a skill? ",
-        "choices": ["Hikari", "Tairitsu"],
-        "answer": "Hikari",
-        "bonus": False,
-        "time": 20,
-        "hint": ""
-    },
-    {
-        "question": 'Which word common means "Perfect"? ',
-        "choices": ["PURE", "FAR", "LOST"],
-        "answer": "PURE",
-        "bonus": True,
-        "time": 20,
-        "hint": ""
-    }
-]
-pre_ques = [
-    {
-        "question": "Which song has the same artist with Tempestissimo? ",
-        "choices": ["OMAKENO Stroke", "BLRINK", "World Ender", "Silent Rush"],
-        "answer": "OMAKENO Stroke",
-        "bonus": False,
-        "time": 20,
-        "hint": ""
-    },
-    {
-        "question": "Which artist finish the song Axium Crisis? ",
-        "choices": ["ak+q", "Aoi", "ARForest", "chitose"],
-        "answer": "ak+q",
-        "bonus": True,
-        "time": 20,
-        "hint": ""
-    }
-]
-ftr_ques = [
-    {
-        "question": "Which song have the highest chart constant? ",
-        "choices": ["Testify", "Tempestissimo", "Arcana Eden", "PRAGMATISM -RESURRECTION-"],
-        "answer": "Testify",
-        "bonus": False,
-        "time": 20,
-        "hint": ""
-    },
-    {
-        "question": "What PTT you need to unlock the Beyond level in game? ",
-        "choices": ["9", "10", "12.5"],
-        "answer": "9.0",
-        "bonus": True,
-        "time": 20,
-        "hint": ""
-    }
-]
+# Load questions
+with open("questions/pst_question.json", "r") as json_file:
+    pst_ques = json.load(json_file)
+with open("questions/pre_question.json", "r") as json_file:
+    pre_ques = json.load(json_file)
+with open("questions/ftr_question.json", "r") as json_file:
+    ftr_ques = json.load(json_file)
+with open("questions/byd_question.json", "r") as json_file:
+    byd_ques = json.load(json_file)
 
 # Save score as 0
 score = 0
@@ -78,9 +32,16 @@ score = 0
 nickname = input("Please press your nickname so we can save your score ranking!")
 
 # Check User is ready or not
-ready = input('When you are ready, press "start" to start the quiz!')
+ready = input("When you are ready, press \"start\" to start the quiz!")
 while not ready.lower() == "start":
-    ready = input('''Still not ready? That's ok, when you ready just type "start":''')
+    ready = input("Still not ready? That's ok, when you ready just type \"start\":")
+
+# Check user got a chance to challenging or not
+with open("contestants_rank.json", "r") as file:
+    contestants_rank = json.load(file)
+for contestant in contestants_rank:
+    if contestant["nickname"] == nickname and contestant["level_chosen"] == "ftr":
+        ftr_score = contestant["score"]
 
 # Difficult choose
 print("Past (Easy):")
@@ -89,15 +50,18 @@ print("Present (Normal):")
 print("Offers a moderate challenge suitable for those with some knowledge of game.")
 print("Future (Hard):")
 print("For a more advanced and challenging experience.Get ready to expand your thinking.This difficulty requires the participant to be familiar with the skills of the game (involving PTT calculations etc.)")
-# Line 93, 94 and 96 is for get a high score at hard level to challenging, but I haven't done the score-save part so it just a placeholder
-#print("Beyond (Challenging):")
-#print("The ultimate challenge.This level of difficulty requires the participant to know almost everything about the game (which will involve how the game functions at a programmatic level)")
-level_chosen = input("Please choose a different level(Pst, Pre, Ftr):").lower()
-#level_chosen = input("Please choose a different level(Pst, Pre, Ftr, Byd):").lower()
-
-# Check is level that user chooes vaild
-while level_chosen not in ["pst", "pre", "ftr"]:
-    level_chosen = input("Invalid level choice. Please choose a valid level (Pst, Pre, Ftr):").lower()
+if ftr_score >= 100:
+    print("Beyond (Challenging):")
+    print("The ultimate challenge.This level of difficulty requires the participant to know almost everything about the game (which will involve how the game functions at a programmatic level)")
+    level_chosen = input("Please choose a different level(Pst, Pre, Ftr, Byd):").lower()
+    # Check is level that user chooes vaild
+    while level_chosen not in ["pst", "pre", "ftr", "byd"]:
+        level_chosen = input("Invalid level choice. Please choose a valid level (pst, pre, ftr, byd):").lower()
+else:
+    level_chosen = input("Please choose a different level(Pst, Pre, Ftr):").lower()
+    # Check is level that user chooes vaild
+    while level_chosen not in ["pst", "pre", "ftr"]:
+        level_chosen = input("Invalid level choice. Please choose a valid level (pst, pre, ftr):").lower()
 
 # Set questions to the correct level
 if level_chosen == "pst":
@@ -106,6 +70,8 @@ elif level_chosen == "pre":
     questions = pre_ques
 elif level_chosen == "ftr":
     questions = ftr_ques
+elif level_chosen == "byd":
+    questions = byd_ques
 print(f"You choose the {level_chosen} level.")
 
 # Randomize the order of questions
@@ -170,13 +136,41 @@ for question in questions:
         else:
             print("Incorrect answer. The correct answer is:", question["answer"])
 
-print(f"You got {score} scores!")
-results = {
-    "nickname": nickname,
-    "score": score,
-    "level_chosen": level_chosen
-}
+print(f"You got {score} scores in {level_chosen}!")
 
-filename = f"./contestants/{nickname}.json"
-with open(filename, "w") as json_file:
-    json.dump(results, json_file)
+# Write results
+for contestant in contestants_rank:
+    if contestant["nickname"] == nickname and contestant["level_chosen"] == level_chosen:
+        if contestant["score"] >= score:
+            print(f"Your highest score is {contestant['score']} in {contestant['level_chosen']}, the score you got this time is lower than it, so it won't save into your rank.")
+            updated = False
+            exist = True
+            break
+        else:
+            print(f"Congratulations! The score you got in [level_chosen] is higher than before, it will save into your rank!")
+            contestant["score"] = score
+            updated = True
+            exist = True
+            break
+    else:
+        updated = False
+        exist = False
+
+# Write the updated data back to contestants_rank.json
+if not updated and not exist:
+    results = {
+        "nickname": nickname,
+        "score": score,
+        "level_chosen": level_chosen
+    }
+    # Add the new result to the loaded data
+    contestants_rank.append(results)
+    with open("contestants_rank.json", "w") as file:
+        json.dump(contestants_rank, file, indent=4)
+if updated and exist:
+    with open("contestants_rank.json", "w") as file:
+        json.dump(contestants_rank, file, indent=4)
+
+
+if score >= 100 and level_chosen == "ftr":
+    print("Because you have got a high score at Future level, you can choose Beyond level next time.")

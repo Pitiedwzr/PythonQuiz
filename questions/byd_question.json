@@ -1,0 +1,34 @@
+[
+  {
+    "question": "Arcaea use what to check songlist is changed or not? ",
+    "choices": [ "Hash check", "MD5 check", "Direct compare", "File size check" ],
+    "answer": "Hash check",
+    "bonus": "False",
+    "time": 10,
+    "hint": ""
+  },
+  {
+    "question": "What file Arcaea use for chart? ",
+    "choices": [ "json", "aff", "aroid", "txt" ],
+    "answer": "aff",
+    "bonus": "True",
+    "time": 7,
+    "hint": ""
+  },
+  {
+    "question": "Which normal chart use screencontrol? ",
+    "choices": [ "Red and Blue and Green", "Overdead.", "Testify", "Tempestissimo" ],
+    "answer": "Testify",
+    "bonus": "True",
+    "time": 7,
+    "hint": ""
+  },
+  {
+    "question": "",
+    "choices": [ "" ],
+    "answer": "",
+    "bonus": "True",
+    "time": 7,
+    "hint": ""
+  }
+]

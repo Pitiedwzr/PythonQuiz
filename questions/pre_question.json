@@ -1,0 +1,26 @@
+[
+  {
+    "question": "Which song has the same artist with Tempestissimo? ",
+    "choices": [ "OMAKENO Stroke", "BLRINK", "World Ender", "Silent Rush" ],
+    "answer": "OMAKENO Stroke",
+    "bonus": "False",
+    "time": 15,
+    "hint": ""
+  },
+  {
+    "question": "What's the first anomaly song? ",
+    "choices": [ "Axium Crisis", "Grievous Lady", "Sheriruth", "Fracture Ray" ],
+    "answer": "Grievous Lady",
+    "bonus": "False",
+    "time": 15,
+    "hint": ""
+  },
+  {
+    "question": "Which artist finish the song Axium Crisis? ",
+    "choices": [ "ak+q", "Aoi", "ARForest", "chitose" ],
+    "answer": "ak+q",
+    "bonus": "True",
+    "time": 10,
+    "hint": ""
+  }
+]

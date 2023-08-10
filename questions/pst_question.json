@@ -1,0 +1,34 @@
+[
+  {
+    "question": "Which partner has a skill? ",
+    "choices": [ "Hikari", "Tairitsu" ],
+    "answer": "Hikari",
+    "bonus": "False",
+    "time": 20,
+    "hint": ""
+  },
+  {
+    "question": "Who finish the song Fairytale? ",
+    "choices": [ "chitose", "A-zu-ra", "U-ske", "Aire" ],
+    "answer": "chitose",
+    "bonus": "False",
+    "time": 20,
+    "hint": ""
+  },
+  {
+    "question": "Who finish the song Brand new world? ",
+    "choices": [ "MIssionary", "chitose", "U-ske", "ak+q" ],
+    "answer": "U-ske",
+    "bonus": "False",
+    "time": 20,
+    "hint": ""
+  },
+  {
+    "question": "Which word common means \"Perfect\"? ",
+    "choices": [ "PURE", "FAR", "LOST" ],
+    "answer": "PURE",
+    "bonus": "True",
+    "time": 15,
+    "hint": ""
+  }
+]
