@@ -4,8 +4,7 @@ import json
 
 # Output rules
 print("Welcome to a quiz of Arcaea! Arcaea is a rhythm game, In this quiz you need to answer a few questions to get score, Let me show you the rules:")
-time_wait = 0 # Set delay time to 0 to easy debug
-#time_wait = 1
+time_wait = 1
 time.sleep(time_wait)
 print("1.Each question will have a time limit for answering, if you fail to answer or answer an incorrect answer, you won't receive scores.")
 time.sleep(time_wait)
@@ -42,6 +41,9 @@ with open("contestants_rank.json", "r") as file:
 for contestant in contestants_rank:
     if contestant["nickname"] == nickname and contestant["level_chosen"] == "ftr":
         ftr_score = contestant["score"]
+        break
+    else:
+        ftr_score = 0
 
 # Difficult choose
 print("Past (Easy):")
@@ -78,7 +80,7 @@ print(f"You choose the {level_chosen} level.")
 random.shuffle(questions)
 
 for question in questions:
-    if question["bonus"]:
+    if question["bonus"] == "True":
         print("Warning: Bonus question!")
         time_limit = question["time"]
         time.sleep(time_wait) # Give time to relize
@@ -100,12 +102,12 @@ for question in questions:
         time_used = answered_time - start_time
 
         # Check if the answer is correct
-        if question["choices"][user_answer - 1] == question["answer"]:
+        if time_used > time_limit:
+            print("You spend too long time on answer.")
+        elif question["choices"][user_answer - 1] == question["answer"]:
             bonus = round(1 + (1 - time_used / time_limit), 1)
             print(f"Correct! You have get a bonus with {bonus}, and you get {10 * bonus} scores!")
             score += 10 * bonus
-        elif time_used > time_limit:
-            print("You spend too long time on answer.")
         else:
             print("Incorrect answer. The correct answer is:", question["answer"])
     else:
@@ -128,11 +130,11 @@ for question in questions:
         time_used = answered_time - start_time
         
         # Check if the answer is correct
-        if question["choices"][user_answer - 1] == question["answer"]:
+        if time_used > time_limit:
+            print("You spend too long time on answer.")
+        elif question["choices"][user_answer - 1] == question["answer"]:
             print("Correct! You get 10 scores.")
             score += 10
-        elif time_used > time_limit:
-            print("You spend too long time on answer.")
         else:
             print("Incorrect answer. The correct answer is:", question["answer"])
 
