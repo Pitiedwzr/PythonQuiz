@@ -3,7 +3,7 @@ import random
 import json
 from colorama import init, Fore, Back, Style
 
-#  
+# Initialization colorama
 init()
 
 # Output rules
