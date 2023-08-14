@@ -1,6 +1,10 @@
 import time
 import random
 import json
+from colorama import init, Fore, Back, Style
+
+#  
+init()
 
 # Output rules
 print("Welcome to a quiz of Arcaea! Arcaea is a rhythm game, In this quiz you need to answer a few questions to get score, Let me show you the rules:")
@@ -81,7 +85,8 @@ random.shuffle(questions)
 
 for question in questions:
     if question["bonus"] == "True":
-        print("Warning: Bonus question!")
+        print(Fore.YELLOW + "Warning: Bonus question!" + Style.RESET_ALL)
+
         time_limit = question["time"]
         time.sleep(time_wait) # Give time to relize
 
@@ -94,7 +99,7 @@ for question in questions:
     
         # Print the answer choices
         for number, choice in enumerate(question["choices"]):
-            print(f"{number + 1}. {choice}")
+            print(Fore.CYAN +  f"{number + 1}. {choice}" + Style.RESET_ALL)
     
         # Get user input for the answer and stop the timer
         user_answer = int(input("Enter your answer (Write the number of answer): "))
@@ -106,10 +111,10 @@ for question in questions:
             print("You spend too long time on answer.")
         elif question["choices"][user_answer - 1] == question["answer"]:
             bonus = round(1 + (1 - time_used / time_limit), 1)
-            print(f"Correct! You have get a bonus with {bonus}, and you get {10 * bonus} scores!")
+            print(Fore.GREEN + f"Correct! You have get a bonus with {bonus}, and you get {10 * bonus} scores!" + Style.RESET_ALL)
             score += 10 * bonus
         else:
-            print("Incorrect answer. The correct answer is:", question["answer"])
+            print(Fore.RED + "Incorrect answer. The correct answer is:", question["answer"] + Style.RESET_ALL)
     else:
         time_limit = question["time"]
 
@@ -122,7 +127,7 @@ for question in questions:
         
         # Print the answer choices
         for number, choice in enumerate(question["choices"]):
-            print(f"{number + 1}. {choice}")
+            print(Fore.CYAN + f"{number + 1}. {choice}" + Style.RESET_ALL)
     
         # Get user input for the answer
         user_answer = int(input("Enter your answer (Write the number of answer): "))
@@ -133,12 +138,12 @@ for question in questions:
         if time_used > time_limit:
             print("You spend too long time on answer.")
         elif question["choices"][user_answer - 1] == question["answer"]:
-            print("Correct! You get 10 scores.")
+            print(Fore.GREEN + "Correct! You get 10 scores." + Style.RESET_ALL)
             score += 10
         else:
-            print("Incorrect answer. The correct answer is:", question["answer"])
+            print(Fore.RED + "Incorrect answer. The correct answer is:", question["answer"] + Style.RESET_ALL)
 
-print(f"You got {score} scores in {level_chosen}!")
+print(Fore.CYAN + f"You got {score} scores in {level_chosen}!" + Style.RESET_ALL)
 
 # Write results
 for contestant in contestants_rank:
@@ -175,4 +180,4 @@ if updated and exist:
 
 
 if score >= 100 and level_chosen == "ftr":
-    print("Because you have got a high score at Future level, you can choose Beyond level next time.")
+    print(Fore.MAGENTA + "Because you have got a high score at Future level, you can choose Beyond level next time." + Style.RESET_ALL)
